@@ -1,0 +1,48 @@
+
+<div class="col-md-2">
+
+</div>
+<div class="col-md-10 main">
+<p id="notice"><%= notice %></p>
+<div class="row">
+
+  <div class="col-lg-12">
+    <h1 class="page-header">Lista de Pedidos<a style="margin-left:100px;" href="/orders/new"><button type="button" class="btn btn-outline-primary">Novo pedido</button></a></h1>
+  </div>
+</div><!--/.row-->
+
+<table id="mytable" class="table table-bordred table-striped">
+
+                  <thead>
+    <tr>
+      <th>Encontrista</th>
+      <th>Desconto</th>
+      <th>Total</th>
+      <th>Detalhes</th>
+      <th>Editar</th>
+      <th>Deletar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.reverse_each do |order| %>
+      <tr>
+        <td><%= order.user.nome %></td>
+        <td><%= order.desconto %></td>
+        <td style="font-weight:bold"><%= order.total %></td>
+        <td><p data-placement="top" data-toggle="tooltip" title="show"><button class="btn btn-info btn-xs" ><%= link_to 'Show', order %></button></p></td>
+      <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" ><%= link_to 'Edit', edit_order_path(order) %></button></p></td>
+      <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"  ><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></button></p></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<script>
+  $(document).ready(function(){
+ myFunction();
+});
+    function myFunction() {
+          document.getElementById("navpedidos").classList.add('active');
+    }
+  </script>

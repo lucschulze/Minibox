@@ -1,0 +1,38 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :contato %>
+    <%= form.text_field :contato, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :saldo %>
+    <%= form.text_field :saldo, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <label for="user_team_id">Equipe</label>
+    <%= collection_select(:user, :team_id, @teams, :id, :nome) %>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil, :class => 'btn btn-outline-success' %>
+  </div>
+<% end %>

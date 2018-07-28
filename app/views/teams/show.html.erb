@@ -1,0 +1,42 @@
+<div class="col-md-2">
+
+</div>
+<div class="col-md-8 main">
+<p id="notice"><%= notice %></p>
+<div class="row">
+
+  <div class="col-lg-6">
+    <h1 class="page-header">Editar</h1>
+  </div>
+</div><!--/.row-->
+<div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">Nome</div>
+        <div class="panel-body">
+          <p>  <%= @team.nome %> / <%= @team.ano %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-warning">
+        <div class="panel-heading">Coordenadores</div>
+        <div class="panel-body">
+          <p>  <%= @team.coordenadores %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading">Chave</div>
+        <div class="panel-body">
+          <p><%= @team.chave %></p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.row -->
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
+
+</div>

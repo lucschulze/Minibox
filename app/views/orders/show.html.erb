@@ -1,0 +1,41 @@
+<div class="col-md-2">
+
+</div>
+<div class="col-md-8 main">
+<p id="notice"><%= notice %></p>
+<div class="row">
+
+  <div class="col-lg-6">
+    <h1 class="page-header">Editar</h1>
+  </div>
+</div><!--/.row-->
+<div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">Encontrista</div>
+        <div class="panel-body">
+          <p>  <%= @order.user.nome %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-warning">
+        <div class="panel-heading">Desconto</div>
+        <div class="panel-body">
+          <p>   <%= @order.desconto %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading">Total</div>
+        <div class="panel-body">
+          <p>  <%= @order.total %></p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.row -->
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+</div>

@@ -1,0 +1,50 @@
+
+<div class="col-md-2">
+
+</div>
+<div class="col-md-10 main">
+<p id="notice"><%= notice %></p>
+<div class="row">
+
+  <div class="col-lg-12">
+    <h1 class="page-header">Lista de equipes<a style="margin-left:100px;" href="/teams/new"><button type="button" class="btn btn-outline-primary">Nova equipe</button></a></h1>
+  </div>
+</div><!--/.row-->
+
+
+<table id="mytable" class="table table-bordred table-striped">
+
+                  <thead>
+
+                    <th>Nome</th>
+                    <th>Ano</th>
+                    <th>Coordenadores</th>
+                    <th>Chave</th>
+                    <th>Detalhes</th>
+                    <th>Editar</th>
+                    <th>Deletar</th>
+                  </thead>
+   <tbody>
+  <% @teams.each do |team| %>
+   <tr>
+     <td><%= team.nome %></td>
+     <td><%= team.ano %></td>
+     <td><%= team.coordenadores %></td>
+     <td><%= team.chave %></td>
+     <td><p data-placement="top" data-toggle="tooltip" title="show"><button class="btn btn-info btn-xs" ><%= link_to 'Show', team %></button></p></td>
+   <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" ><%= link_to 'Edit', edit_team_path(team) %></button></p></td>
+   <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"  ><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></button></p></td>
+   </tr>
+   <% end %>
+
+   </tbody>
+
+</table>
+<script>
+  $(document).ready(function(){
+ myFunction();
+});
+    function myFunction() {
+          document.getElementById("navequipes").classList.add('active');
+    }
+  </script>
